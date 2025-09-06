@@ -5,6 +5,9 @@ import com.NeuroCare.model.User;
 import com.NeuroCare.repository.UserRepository;
 import com.NeuroCare.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,30 +20,39 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/signup")
-    public String signup(@RequestBody User user) {
-        // Check if user already exists
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            return "User with this email already exists!";
-        }
+    public ResponseEntity<?> signup(@RequestBody User user) {
+        try {
+            // 1. Password hash karna
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        userRepository.save(user);
-        return "User registered successfully!";
+            // 2. Save user to DB
+            User savedUser = userRepository.save(user);
+            return ResponseEntity.ok(savedUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error during signup: " + e.getMessage());
+        }
     }
 
     @PostMapping("/login")
-    public Object login(@RequestBody User loginRequest) {
-        try {
-            return userRepository.findByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword())
-                    .map(user -> {
+    public ResponseEntity<?> login(@RequestBody User loginRequest) {
+        return userRepository.findByEmail(loginRequest.getEmail())
+                .map(user -> {
+                    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                    if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
                         String token = JwtUtil.generateToken(user.getEmail());
-                        return new AuthResponse(token);
-                    })
-                    .orElse(new AuthResponse("Invalid email or password!"));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new AuthResponse("Error during login: " + e.getMessage());
-        }
+                        return ResponseEntity.ok(new AuthResponse(token));
+                    } else {
+                        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                .body(new AuthResponse("Invalid email or password!"));
+                    }
+                })
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(new AuthResponse("Invalid email or password!")));
     }
+
 
 
     @GetMapping("/all")
