@@ -1,97 +1,65 @@
 package com.NeuroCare.model;
 
+import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "user")
 public class User {
 
     @Id
     private String id;
-
     private String name;
-    private String email;
-    private String password;
 
+    @Indexed(unique = true)
+    private String email;
+
+    @NonNull
+    private String password;
     private Membership membership;
     private List<ChatMessage> chatHistory;
     private List<MoodLog> moodLogs;
     private Settings settings;
+
+
+    private Map<String, String> onboardingAnswers;
+
     private LocalDateTime createdAt = LocalDateTime.now();
 
+
     // --- Getters & Setters ---
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-    public String getEmail() {
-        return email;
-    }
+    public Membership getMembership() { return membership; }
+    public void setMembership(Membership membership) { this.membership = membership; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public List<ChatMessage> getChatHistory() { return chatHistory; }
+    public void setChatHistory(List<ChatMessage> chatHistory) { this.chatHistory = chatHistory; }
 
-    public String getPassword() {
-        return password;
-    }
+    public List<MoodLog> getMoodLogs() { return moodLogs; }
+    public void setMoodLogs(List<MoodLog> moodLogs) { this.moodLogs = moodLogs; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public Settings getSettings() { return settings; }
+    public void setSettings(Settings settings) { this.settings = settings; }
 
-    public Membership getMembership() {
-        return membership;
-    }
+    public Map<String, String> getOnboardingAnswers() { return onboardingAnswers; }
+    public void setOnboardingAnswers(Map<String, String> onboardingAnswers) { this.onboardingAnswers = onboardingAnswers; }
 
-    public void setMembership(Membership membership) {
-        this.membership = membership;
-    }
-
-    public List<ChatMessage> getChatHistory() {
-        return chatHistory;
-    }
-
-    public void setChatHistory(List<ChatMessage> chatHistory) {
-        this.chatHistory = chatHistory;
-    }
-
-    public List<MoodLog> getMoodLogs() {
-        return moodLogs;
-    }
-
-    public void setMoodLogs(List<MoodLog> moodLogs) {
-        this.moodLogs = moodLogs;
-    }
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public void setSettings(Settings settings) {
-        this.settings = settings;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
