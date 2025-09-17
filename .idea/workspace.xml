@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="331ba6ee-ceb8-4c34-bcef-8996d228ada9" name="Changes" comment="" />
+    <list default="true" id="331ba6ee-ceb8-4c34-bcef-8996d228ada9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/NeuroCare/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/NeuroCareApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/controller/ChatController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/controller/OnboardingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/AuthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/ChatMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/Membership.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/MoodLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/java/com/NeuroCare/security/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuroCare/src/test/java/com/NeuroCare/NeuroCareApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +64,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/NeuroCare_backend/NeuroCare",
+    "last_opened_file_path": "D:/NeuroCare/NeuroCare_Backend",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
