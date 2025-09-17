@@ -9,16 +9,13 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/onboarding")
 public class OnboardingController{
-
     private final UserRepository userRepository;
 
     public OnboardingController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-
     @GetMapping("/questions")
-    public List<String> getQuestions() {
+    public List<String> getQuestions(){
         return Arrays.asList(
                 "Aap apna din kaisa mehsoos kar rahe ho?",
                 "Aapko aksar kis cheez se stress hota hai?",

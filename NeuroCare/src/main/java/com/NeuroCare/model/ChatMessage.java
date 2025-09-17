@@ -1,43 +1,27 @@
 package com.NeuroCare.model;
 
-import java.time.LocalDateTime;
-
 public class ChatMessage {
-    private String message;
     private String sender;
-    private String sentiment;
-    private LocalDateTime timestamp;
+    private String content;
 
-    public String getMessage() {
-        return message;
-    }
+    public ChatMessage() {}
 
-    public void setMessage(String message) {
-        this.message = message;
+    public ChatMessage(String sender, String content) {
+        this.sender = sender;
+        this.content = content;
     }
 
     public String getSender() {
         return sender;
     }
-
     public void setSender(String sender) {
         this.sender = sender;
     }
 
-    public String getSentiment() {
-        return sentiment;
+    public String getContent() {
+        return content;
     }
-
-    public void setSentiment(String sentiment) {
-        this.sentiment = sentiment;
+    public void setContent(String content) {
+        this.content = content;
     }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-// Getters and Setters
 }
